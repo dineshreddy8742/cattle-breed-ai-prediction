@@ -118,6 +118,6 @@ dmypy.json
 
 # Custom
 predictions.db
-config.yaml
+#config.yaml
 .DS_Store
 #models/
