@@ -57,7 +57,7 @@ const UploadSection = () => {
     formData.append('threshold', threshold / 100);
 
     try {
-      const response = await fetch('http://10.100.182.69:5001/api/classify', {
+      const response = await fetch('/api/classify', {
         method: 'POST',
         body: formData,
       });
