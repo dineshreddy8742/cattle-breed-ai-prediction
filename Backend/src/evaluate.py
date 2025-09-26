@@ -2,6 +2,7 @@ import torch
 from dataset_loader import load_data
 from model import create_resnet50
 
+
 def evaluate_model(model_path, data_dir, num_classes, batch_size=32):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -21,7 +22,13 @@ def evaluate_model(model_path, data_dir, num_classes, batch_size=32):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
 
-    print(f'Accuracy of the model on the test images: {100 * correct / total}%')
+    accuracy = 100 * correct / total
+    print(f'Accuracy of the model on the test images: {accuracy}%')
+
 
 if __name__ == "__main__":
-    evaluate_model(model_path='cattle_breed_classifier.pth', data_dir='cattle_image', num_classes=30)
+    evaluate_model(
+        model_path='cattle_breed_classifier_full_model.pth',
+        data_dir='cattle_image',
+        num_classes=30
+    )

@@ -4,6 +4,7 @@ import torch.nn as nn
 from dataset_loader import load_data
 from model import create_resnet50
 
+
 def train_model(data_dir, num_classes, num_epochs=25, batch_size=8, learning_rate=0.001):
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print(f"Device : {device}")
@@ -19,7 +20,7 @@ def train_model(data_dir, num_classes, num_epochs=25, batch_size=8, learning_rat
         model.train()
         for inputs, labels in dataloader:
             inputs, labels = inputs.to(device), labels.to(device)
-            
+
             optimizer.zero_grad()
             outputs = model(inputs)
             loss = criterion(outputs, labels)
@@ -31,6 +32,9 @@ def train_model(data_dir, num_classes, num_epochs=25, batch_size=8, learning_rat
 
     return model
 
+
 if __name__ == "__main__":
-    model = train_model(data_dir='/Users/ajitkumarsingh/Desktop/cattle-breed-classifier-webapp/Cattle_Resized', num_classes=26)
-    torch.save(model.state_dict(), 'cattle_breed_classifier.pth')
+    # Use relative path or configurable
+    data_dir = 'Cattle_Resized'  # Adjust as needed
+    model = train_model(data_dir=data_dir, num_classes=26)
+    torch.save(model.state_dict(), 'cattle_breed_classifier_full_model.pth')

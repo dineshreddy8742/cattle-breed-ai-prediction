@@ -26,40 +26,32 @@ const Header = () => {
             
             {/* Desktop Navigation */}
             <div className="nav-links desktop-nav">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
               >
                 HOME
               </Link>
-              <Link 
-                to="/about" 
-                className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
-              >
-                ABOUT
-              </Link>
-              <Link 
-                to="/breed-database" 
+              <Link
+                to="/breed-database"
                 className={`nav-link ${location.pathname === '/breed-database' ? 'active' : ''}`}
               >
-                BREED DATABASE
+                BREED DB
               </Link>
-              <div className="nav-dropdown">
-                <Link 
-                  to="/upload" 
-                  className={`nav-link ${location.pathname === '/upload' ? 'active' : ''}`}
-                >
-                  UPLOAD IMAGE
-                </Link>
-              </div>
-              <Link 
-                to="/history" 
+              <Link
+                to="/upload"
+                className={`nav-link ${location.pathname === '/upload' ? 'active' : ''}`}
+              >
+                IDENTIFY
+              </Link>
+              <Link
+                to="/history"
                 className={`nav-link ${location.pathname === '/history' ? 'active' : ''}`}
               >
                 HISTORY
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
               >
                 CONTACT
@@ -97,43 +89,36 @@ const Header = () => {
                 </div>
               </div>
               <div className="mobile-nav-links">
-                <Link 
-                  to="/" 
+                <Link
+                  to="/"
                   className={`nav-link ${location.pathname === '/' ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
                   HOME
                 </Link>
-                <Link 
-                  to="/about" 
-                  className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`}
-                  onClick={closeMobileMenu}
-                >
-                  ABOUT
-                </Link>
-                <Link 
-                  to="/breed-database" 
+                <Link
+                  to="/breed-database"
                   className={`nav-link ${location.pathname === '/breed-database' ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
-                  BREED DATABASE
+                  BREED DB
                 </Link>
-                <Link 
-                  to="/upload" 
+                <Link
+                  to="/upload"
                   className={`nav-link ${location.pathname === '/upload' ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
-                  UPLOAD IMAGE
+                  IDENTIFY
                 </Link>
-                <Link 
-                  to="/history" 
+                <Link
+                  to="/history"
                   className={`nav-link ${location.pathname === '/history' ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >
                   HISTORY
                 </Link>
-                <Link 
-                  to="/contact" 
+                <Link
+                  to="/contact"
                   className={`nav-link ${location.pathname === '/contact' ? 'active' : ''}`}
                   onClick={closeMobileMenu}
                 >

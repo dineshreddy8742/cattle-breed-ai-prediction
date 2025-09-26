@@ -1,7 +1,7 @@
-import torch
 import torchvision.models as models
 import torch.nn as nn
 from torchvision.models import ResNet50_Weights
+
 
 def create_resnet50(num_classes, pretrained=True):
     if pretrained:

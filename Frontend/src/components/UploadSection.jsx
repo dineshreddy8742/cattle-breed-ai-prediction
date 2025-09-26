@@ -6,7 +6,7 @@ const UploadSection = () => {
   const [isProcessing, setIsProcessing] = useState(false)
   const [breedResult, setBreedResult] = useState(null)
   const [dragActive, setDragActive] = useState(false)
-  const [threshold, setThreshold] = useState(60);
+  const [threshold, setThreshold] = useState(80);
   const fileInputRef = useRef(null)
 
   const handleDrag = (e) => {
@@ -177,10 +177,10 @@ const UploadSection = () => {
                             <h4>{prediction.class}</h4>
                             <span className="confidence">{(prediction.prob * 100).toFixed(1)}% confidence</span>
                           </div>
-                          {index === 0 && prediction.class !== "Image is not a valid cattle" && (
+                          {index === 0 && prediction.class !== "Not a cattle breed likely" && (
                             <p className="breed-description">The model is confident about this prediction. More details about the {prediction.class} breed can be found online.</p>
                           )}
-                          {prediction.class === "Image is not a valid cattle" && (
+                          {prediction.class === "Not a cattle breed likely" && (
                             <p className="breed-description">{prediction.class}</p>
                           )}
                         </div>

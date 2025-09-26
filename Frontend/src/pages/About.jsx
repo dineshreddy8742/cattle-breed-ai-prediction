@@ -36,6 +36,28 @@ const About = () => {
             </div>
           </section>
 
+          {/* How It Helps Section */}
+          <section className="help-section">
+            <h2>How It Helps</h2>
+            <div className="help-grid">
+              <div className="help-item">
+                <div className="help-icon">👨‍🌾</div>
+                <h3>Field Workers</h3>
+                <p>Quick and accurate breed identification in the field, reducing errors and saving time during livestock surveys and registrations.</p>
+              </div>
+              <div className="help-item">
+                <div className="help-icon">🏛️</div>
+                <h3>Government Users</h3>
+                <p>Reliable data for policy making, genetic improvement programs, and monitoring livestock health across India.</p>
+              </div>
+              <div className="help-item">
+                <div className="help-icon">📊</div>
+                <h3>Data Integrity</h3>
+                <p>Consistent breed classification ensures accurate national livestock databases and better resource allocation.</p>
+              </div>
+            </div>
+          </section>
+
           {/* Technology Section */}
           <section className="technology-section">
             <h2>Our Technology</h2>

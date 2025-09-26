@@ -1,7 +1,6 @@
-import os
-import torch
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
+
 
 def load_data(data_dir, batch_size=32, img_size=224):
     transform = transforms.Compose([
