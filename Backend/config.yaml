@@ -1,0 +1,4 @@
+debug: true
+port: 5000
+model_path: models/cattle_breed_classifier_full_model.pth
+classes_path: models/classes.txt
