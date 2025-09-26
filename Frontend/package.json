@@ -4,7 +4,7 @@
   "description": "AI-powered cattle and buffalo breed recognition for Bharat Pashudhan App",
   "scripts": {
     "dev": "vite",
-    "build": "npx vite build",
+    "build": "./node_modules/.bin/vite build",
     "preview": "vite preview"
   },
   "dependencies": {
