@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../apiConfig';
 import Hero from '../components/Hero'
 import ChartsSection from '../components/ChartsSection'
 import HowItWorks from '../components/HowItWorks'
@@ -8,7 +9,7 @@ const Home = () => {
   const [stats, setStats] = useState({ breeds: 0, images: 0, accuracy: 0, workers: 0 });
 
   useEffect(() => {
-    fetch('/api/stats')
+    fetch(`${API_BASE_URL}/api/stats`)
       .then(response => response.json())
       .then(data => setStats(data))
       .catch(error => console.error('Error fetching stats:', error));

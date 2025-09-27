@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { API_BASE_URL } from '../apiConfig';
 
 const BreedDatabase = () => {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -99,7 +100,7 @@ const BreedDatabase = () => {
   useEffect(() => {
     const fetchClasses = async () => {
       try {
-        const response = await fetch('/api/classes')
+        const response = await fetch(`${API_BASE_URL}/api/classes`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }

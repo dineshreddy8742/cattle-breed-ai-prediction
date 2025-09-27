@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { API_BASE_URL } from '../apiConfig';
 
 const History = () => {
   const [predictions, setPredictions] = useState([])
@@ -8,7 +9,7 @@ const History = () => {
   useEffect(() => {
     const fetchHistory = async () => {
       try {
-        const response = await fetch('/api/history')
+        const response = await fetch(`${API_BASE_URL}/api/history`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }

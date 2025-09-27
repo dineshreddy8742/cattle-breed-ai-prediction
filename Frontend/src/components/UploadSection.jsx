@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react'
+import { API_BASE_URL } from '../apiConfig';
 
 const UploadSection = () => {
   const [uploadedImage, setUploadedImage] = useState(null)
@@ -57,7 +58,7 @@ const UploadSection = () => {
     formData.append('threshold', threshold / 100);
 
     try {
-      const response = await fetch('/api/classify', {
+      const response = await fetch(`${API_BASE_URL}/api/classify`, {
         method: 'POST',
         body: formData,
       });
