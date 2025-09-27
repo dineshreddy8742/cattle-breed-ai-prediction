@@ -110,14 +110,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# pytype
-.pytype/
-
-# VSCode
-.vscode/
-
 # Custom
 predictions.db
 #config.yaml
 .DS_Store
 #models/
+test_model_load.py
