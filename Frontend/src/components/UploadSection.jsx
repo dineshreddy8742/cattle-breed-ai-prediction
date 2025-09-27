@@ -6,7 +6,7 @@ const UploadSection = () => {
   const [isProcessing, setIsProcessing] = useState(false)
   const [breedResult, setBreedResult] = useState(null)
   const [dragActive, setDragActive] = useState(false)
-  const [threshold, setThreshold] = useState(80);
+  const [threshold, setThreshold] = useState(50);
   const fileInputRef = useRef(null)
 
   const handleDrag = (e) => {
@@ -171,20 +171,32 @@ const UploadSection = () => {
                   <h3>Breed Identification Result</h3>
                   {breedResult.predictions && breedResult.predictions.length > 0 ? (
                     <div className="predictions-list">
-                      {breedResult.predictions.map((prediction, index) => (
-                        <div key={index} className="prediction-item">
-                          <div className="breed-name">
-                            <h4>{prediction.class}</h4>
-                            <span className="confidence">{(prediction.prob * 100).toFixed(1)}% confidence</span>
+                      {breedResult.predictions.map((prediction, index) => {
+                        const confidence = prediction.prob * 100;
+                        let description = null;
+
+                        if (index === 0) {
+                          if (prediction.class === "Not a cattle breed likely") {
+                            description = "The model could not identify a cattle breed in this image. Please try a different photo.";
+                          } else if (confidence > 75) {
+                            description = `The model is highly confident that this is a ${prediction.class}.`;
+                          } else if (confidence > 40) {
+                            description = `This looks like a ${prediction.class}. You can find more details about this breed online.`;
+                          } else {
+                            description = `The model is not very confident, but this might be a ${prediction.class}. For a better result, please try uploading a clearer, side-view photo of the animal.`;
+                          }
+                        }
+
+                        return (
+                          <div key={index} className="prediction-item">
+                            <div className="breed-name">
+                              <h4>{prediction.class}</h4>
+                              <span className="confidence">{confidence.toFixed(1)}% confidence</span>
+                            </div>
+                            {description && <p className="breed-description">{description}</p>}
                           </div>
-                          {index === 0 && prediction.class !== "Not a cattle breed likely" && (
-                            <p className="breed-description">The model is confident about this prediction. More details about the {prediction.class} breed can be found online.</p>
-                          )}
-                          {prediction.class === "Not a cattle breed likely" && (
-                            <p className="breed-description">{prediction.class}</p>
-                          )}
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   ) : (
                     <p className="breed-description">No predictions available.</p>

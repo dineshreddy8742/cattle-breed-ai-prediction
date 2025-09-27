@@ -20,29 +20,27 @@ from src.model import create_resnet50
 warnings.filterwarnings("ignore")
 print("Imports Done")
 
-export_file_name = 'cattle_breed_classifier_full_model.pth'
-path = Path("models/")
-os.makedirs(path, exist_ok=True)
-export_classes_name = "classes.txt"
+config_path = os.path.join(os.path.dirname(__file__), "config.yaml")
+with open(config_path, 'r') as stream:
+    APP_CONFIG = yaml.full_load(stream)
+
+model_path = APP_CONFIG['model_path']
+classes_path = APP_CONFIG['classes_path']
 
 # Synchronous model loading since files exist locally
 try:
     print("Loading model synchronously...")
-    model = torch.load(path / export_file_name, map_location=torch.device('cpu'), weights_only=False)
+    model = torch.load(model_path, map_location=torch.device('cpu'), weights_only=False)
     model.eval()
     print("Model loaded successfully.")
     
-    with open(path / export_classes_name, 'r') as file:
+    with open(classes_path, 'r') as file:
         class_list = file.read().split(",")
     print(f"Loaded {len(class_list)} classes.")
 except Exception as e:
     print(f"Error loading model: {e}")
     model = None
     class_list = []
-
-config_path = os.path.join(os.path.dirname(__file__), "config.yaml")
-with open(config_path, 'r') as stream:
-    APP_CONFIG = yaml.full_load(stream)
 
 app = Flask(__name__)
 CORS(app)
@@ -56,12 +54,12 @@ def home():
 
 def load_image_url(url: str) -> Image:
     response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
+    img = Image.open(BytesIO(response.content)).convert('RGB')
     return img
 
 
 def load_image_bytes(raw_bytes: ByteString) -> Image:
-    img = Image.open(BytesIO(raw_bytes))
+    img = Image.open(BytesIO(raw_bytes)).convert('RGB')
     return img
 
 
@@ -108,7 +106,7 @@ def predict(img, threshold: float = 0.4, n: int = 3) -> Dict[str, Union[str, Lis
 def upload_file():
     try:
         print("Received request for /api/classify")
-        threshold = float(request.args.get("threshold", 0.8))
+        threshold = float(request.form.get("threshold", 0.8))
         print(f"Threshold set to: {threshold}")
         if request.method == 'GET':
             url = request.args.get("url")

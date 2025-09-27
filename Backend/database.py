@@ -4,7 +4,6 @@ import datetime
 
 DATABASE_NAME = 'predictions.db'
 
-
 def init_db():
     try:
         with sqlite3.connect(DATABASE_NAME) as conn:
@@ -22,7 +21,6 @@ def init_db():
     except sqlite3.Error as e:
         print(f"Database error in init_db: {e}")
 
-
 def save_prediction(image_bytes, breed, confidence):
     try:
         image_base64 = base64.b64encode(image_bytes).decode('utf-8')
@@ -38,7 +36,6 @@ def save_prediction(image_bytes, breed, confidence):
         print(f"Database error in save_prediction: {e}")
     except Exception as e:
         print(f"Error in save_prediction: {e}")
-
 
 def get_predictions():
     try:
@@ -64,7 +61,6 @@ def get_predictions():
     except Exception as e:
         print(f"Error in get_predictions: {e}")
         return []
-
 
 def get_predictions_count():
     try:

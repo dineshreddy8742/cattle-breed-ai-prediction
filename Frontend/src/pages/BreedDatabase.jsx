@@ -15,7 +15,7 @@ const BreedDatabase = () => {
         name: "Gir",
         region: "Gujarat",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/FF6B6B/FFFFFF?text=Gir+Cattle",
+        image: "./image1.png",
         description: "Famous for high milk production and distinctive red and white coloration",
         keyFacts: "High milk yield up to 1,800 liters per lactation, disease resistant, adaptable to hot climate",
         characteristics: ["High milk yield", "Disease resistant", "Adaptable to hot climate"]
@@ -24,7 +24,7 @@ const BreedDatabase = () => {
         name: "Sahiwal",
         region: "Punjab",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/4ECDC4/FFFFFF?text=Sahiwal+Cattle",
+        image: "./image2.png",
         description: "Excellent dairy breed known for heat tolerance and milk quality",
         keyFacts: "Heat tolerant, high butterfat content (4-5%), good temperament",
         characteristics: ["Heat tolerant", "High butterfat content", "Good temperament"]
@@ -33,7 +33,7 @@ const BreedDatabase = () => {
         name: "Red Sindhi",
         region: "Sindh",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/45B7D1/FFFFFF?text=Red+Sindhi",
+        image: "./image3.png",
         description: "Red colored breed with good milk production and disease resistance",
         keyFacts: "Disease resistant, good milk yield, red coloration, hardy",
         characteristics: ["Disease resistant", "Good milk yield", "Red coloration"]
@@ -42,7 +42,7 @@ const BreedDatabase = () => {
         name: "Tharparkar",
         region: "Rajasthan",
         type: "Dual Purpose",
-        image: "https://via.placeholder.com/300x200/F7DC6F/000000?text=Tharparkar",
+        image: "./image4.png",
         description: "White colored breed suitable for both milk and draught purposes",
         keyFacts: "Dual purpose (milk and draught), white color, hardy in arid regions",
         characteristics: ["Dual purpose", "White color", "Hardy"]
@@ -53,7 +53,7 @@ const BreedDatabase = () => {
         name: "Murrah",
         region: "Haryana",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/8E44AD/FFFFFF?text=Murrah+Buffalo",
+        image: "./image1.png",
         description: "Premium buffalo breed with highest milk production",
         keyFacts: "Highest milk yield (2,000-2,500 liters), high butterfat, black color",
         characteristics: ["Highest milk yield", "High butterfat", "Black color"]
@@ -62,7 +62,7 @@ const BreedDatabase = () => {
         name: "Nili-Ravi",
         region: "Punjab",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/16A085/FFFFFF?text=Nili-Ravi",
+        image: "./image2.png",
         description: "Excellent dairy buffalo with distinctive white markings",
         keyFacts: "High milk production, white markings, good temperament",
         characteristics: ["High milk production", "White markings", "Good temperament"]
@@ -71,7 +71,7 @@ const BreedDatabase = () => {
         name: "Surti",
         region: "Gujarat",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/E74C3C/FFFFFF?text=Surti+Buffalo",
+        image: "./image3.png",
         description: "Medium-sized buffalo breed with good milk quality",
         keyFacts: "Medium size, good milk quality, adaptable, white with black markings",
         characteristics: ["Medium size", "Good milk quality", "Adaptable"]
@@ -80,7 +80,7 @@ const BreedDatabase = () => {
         name: "Jaffarabadi",
         region: "Gujarat",
         type: "Dairy",
-        image: "https://via.placeholder.com/300x200/9B59B6/FFFFFF?text=Jaffarabadi",
+        image: "./image4.png",
         description: "Large-sized buffalo breed with high milk production",
         keyFacts: "Large size, high milk yield, strong build, white with black markings",
         characteristics: ["Large size", "High milk yield", "Strong build"]
