@@ -6,22 +6,8 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="footer-content">
-          <div className="footer-section">
-            <div className="footer-logo">
-              <span className="logo-icon">🐄</span>
-              <span className="logo-text">PashuAI</span>
-            </div>
-            <p className="footer-description">
-              AI-powered cattle and buffalo breed recognition system for Bharat Pashudhan App. 
-              Supporting field workers with accurate breed identification.
-            </p>
-            <div className="footer-social">
-              <a href="#" className="social-link">f</a>
-              <a href="#" className="social-link">🐦</a>
-              <a href="#" className="social-link">in</a>
-              <a href="#" className="social-link">📷</a>
-            </div>
-          </div>
+
+
 
           <div className="footer-section">
             <h4>Quick Links</h4>

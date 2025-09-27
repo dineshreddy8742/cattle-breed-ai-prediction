@@ -8,11 +8,19 @@ const BreedDatabase = () => {
   const [classes, setClasses] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+
+  const handleAnchorClick = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
   
   const breeds = {
     cattle: [
       {
-        name: "Gir",
+        name: "Gir Cow",
         region: "Gujarat",
         type: "Dairy",
         image: "./image1.png",
@@ -21,7 +29,7 @@ const BreedDatabase = () => {
         characteristics: ["High milk yield", "Disease resistant", "Adaptable to hot climate"]
       },
       {
-        name: "Sahiwal",
+        name: "Sahiwal Cow",
         region: "Punjab",
         type: "Dairy",
         image: "./image2.png",
@@ -39,7 +47,7 @@ const BreedDatabase = () => {
         characteristics: ["Disease resistant", "Good milk yield", "Red coloration"]
       },
       {
-        name: "Tharparkar",
+        name: "Tharparkar Cow",
         region: "Rajasthan",
         type: "Dual Purpose",
         image: "./image4.png",
@@ -59,7 +67,7 @@ const BreedDatabase = () => {
         characteristics: ["Highest milk yield", "High butterfat", "Black color"]
       },
       {
-        name: "Nili-Ravi",
+        name: "Nili ravi Buffalo",
         region: "Punjab",
         type: "Dairy",
         image: "./image2.png",
@@ -68,7 +76,7 @@ const BreedDatabase = () => {
         characteristics: ["High milk production", "White markings", "Good temperament"]
       },
       {
-        name: "Surti",
+        name: "Shurti Buffalo",
         region: "Gujarat",
         type: "Dairy",
         image: "./image3.png",
@@ -77,7 +85,7 @@ const BreedDatabase = () => {
         characteristics: ["Medium size", "Good milk quality", "Adaptable"]
       },
       {
-        name: "Jaffarabadi",
+        name: "Jaffrabadi Buffalo",
         region: "Gujarat",
         type: "Dairy",
         image: "./image4.png",
@@ -246,7 +254,7 @@ const BreedDatabase = () => {
           {/* Breeds Grid */}
           <div className="breeds-grid">
             {filteredBreeds.map((breed, index) => (
-              <div key={index} className="breed-card">
+              <div key={index} className="breed-card" id={`breed-card-${breed.name.replace(/ /g, '-')}`}>
                 <div className="breed-image">
                   <img 
                     src={breed.image} 
@@ -297,9 +305,28 @@ const BreedDatabase = () => {
               <h2>Available Breeds from AI Model</h2>
               <p>These are the breeds the AI model can identify:</p>
               <div className="classes-list">
-                {classes.map((cls, index) => (
-                  <span key={index} className="class-item">{cls.replace(/_/g, ' ')}</span>
-                ))}
+                {(() => {
+                  const featuredBreedNames = [...breeds.cattle, ...breeds.buffalo].map(b => b.name);
+                  return classes
+                    .filter(cls => cls.toLowerCase().includes(searchTerm.toLowerCase()))
+                    .map((cls, index) => {
+                      const breedName = cls.replace(/_/g, ' ');
+                      if (featuredBreedNames.includes(breedName)) {
+                        const targetId = `breed-card-${breedName.replace(/ /g, '-')}`;
+                        return (
+                          <a href={`#${targetId}`} key={index} className="class-item clickable" onClick={(e) => handleAnchorClick(e, targetId)}>
+                            {breedName}
+                          </a>
+                        );
+                      } else {
+                        return (
+                          <span key={index} className="class-item">
+                            {breedName}
+                          </span>
+                        );
+                      }
+                    });
+                })()}
               </div>
             </div>
           )}

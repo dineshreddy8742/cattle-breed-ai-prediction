@@ -179,9 +179,9 @@ const UploadSection = () => {
                           if (prediction.class === "Not a cattle breed likely") {
                             description = "The model could not identify a cattle breed in this image. Please try a different photo.";
                           } else if (confidence > 75) {
-                            description = `The model is highly confident that this is a ${prediction.class}.`;
+                            description = `The model is highly confident that this is a ${prediction.class}. You can browse our Breed Database to learn more about this breed.`;
                           } else if (confidence > 40) {
-                            description = `This looks like a ${prediction.class}. You can find more details about this breed online.`;
+                            description = `This looks like a ${prediction.class}. Check the Breed Database for more information.`;
                           } else {
                             description = `The model is not very confident, but this might be a ${prediction.class}. For a better result, please try uploading a clearer, side-view photo of the animal.`;
                           }

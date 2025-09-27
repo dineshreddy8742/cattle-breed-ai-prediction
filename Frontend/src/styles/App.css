@@ -1649,6 +1649,28 @@ body {
   transform: translateX(5px);
 }
 
+/* New styles for a more compact footer contact section */
+.footer .contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Control spacing between items */
+}
+
+.footer .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between icon and text */
+}
+
+.footer .contact-item .icon {
+  color: var(--primary-green);
+  font-size: 18px;
+}
+
+.footer .contact-item span {
+  font-size: 15px;
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 30px;
@@ -1661,8 +1683,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #bdc3c7;
-  font-size: 14px;
+  color: #FFFFFF; /* Brighter text */
+  font-size: 16px; /* Larger font */
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -1673,7 +1695,7 @@ body {
 }
 
 .footer-bottom-links a {
-  color: #bdc3c7;
+  color: #FFFFFF; /* Brighter text */
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 5px 10px;
@@ -2467,10 +2489,20 @@ a:hover::after {
 /* Available Classes Section */
 .available-classes {
   margin-top: 60px;
-  padding: 40px;
-  background: #f8f9fa;
-  border-radius: 15px;
-  text-align: center;
+  padding-top: 40px;
+  border-top: 1px solid #ecf0f1;
+}
+
+.class-item.clickable {
+  cursor: pointer;
+  color: var(--primary-green);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.class-item.clickable:hover {
+  color: var(--earth-brown);
 }
 
 .available-classes h2 {
