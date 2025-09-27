@@ -30,20 +30,19 @@ classes_path = APP_CONFIG['classes_path']
 # Synchronous model loading since files exist locally
 try:
     print("Loading model synchronously...")
-    model = torch.load(model_path, map_location=torch.device('cpu'), weights_only=False)
-    model.eval()
-    print("Model loaded successfully.")
-    
     with open(classes_path, 'r') as file:
         class_list = file.read().split(",")
     print(f"Loaded {len(class_list)} classes.")
+    model = torch.load(model_path, map_location=torch.device('cpu'), weights_only=False)
+    model.eval()
+    print("Model loaded successfully.")
 except Exception as e:
     print(f"Error loading model: {e}")
     model = None
     class_list = []
 
 app = Flask(__name__)
-CORS(app, origins=["https://cattle-breed-ai-prediction-1.onrender.com", "http://localhost:5173"], supports_credentials=True)
+CORS(app, origins=["https://cattle-breed-ai-prediction.onrender.com", "https://cattle-breed-ai-prediction-1.onrender.com", "http://localhost:5173"], supports_credentials=True)
 init_db()
 print("App initialized, database ready.")
 
