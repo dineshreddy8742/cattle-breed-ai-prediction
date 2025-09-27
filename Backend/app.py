@@ -42,7 +42,7 @@ except Exception as e:
     class_list = []
 
 app = Flask(__name__)
-CORS(app, origins=["https://cattle-breed-ai-prediction.onrender.com", "https://cattle-breed-ai-prediction-1.onrender.com", "http://localhost:5173"], supports_credentials=True)
+CORS(app, origins="*")
 init_db()
 print("App initialized, database ready.")
 
